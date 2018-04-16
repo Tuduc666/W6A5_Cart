@@ -12,7 +12,7 @@ public class CartSystem extends TheSystem{
         Double subtotal=0D; Double tax; Double total;
         String message = "";
 		for(Item a : current.values()) {
-			message += a.getItemName() + " " + a.getItemDesc() + " " + a.getQuantity() + " " + a.getAvailableQuantity() + "\r\n";
+			message += a.getItemName() + " " + a.getItemDesc() + " " + a.getItemPrice() + " " + a.getQuantity() +  "\r\n";
 			subtotal += a.getItemPrice();
 		}
 		tax = subtotal * 0.05;

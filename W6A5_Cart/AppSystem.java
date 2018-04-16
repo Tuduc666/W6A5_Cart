@@ -10,7 +10,7 @@ public class AppSystem extends TheSystem {
         HashMap<String, Item> current = this.getItemCollection();
         String message = "";
 		for(Item a : current.values()) {
-			message += a.getItemName() + " " + a.getItemDesc() + " " + a.getQuantity() + " " + a.getAvailableQuantity() + "\r\n";
+			message += a.getItemName() + " " + a.getItemDesc() + " " + a.getItemPrice() + " " + a.getAvailableQuantity() + "\r\n";
 		}
 		System.out.println(message);    
     }

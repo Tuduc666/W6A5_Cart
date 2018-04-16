@@ -26,7 +26,7 @@ public class MainEntryPoint
                     System.out.print("\nEnter a description for the item:\n");
                     item.setItemDesc(reader.nextLine());
                     System.out.print("\nEnter the item's price:\n");
-                    item.setItemPrice(reader.nextDouble());
+                    item.setItemPrice(reader.nextDouble()); reader.nextLine();
                     System.out.print("\nEnter the quantity available in the System:\n");
                     item.setAvailableQuantity(reader.nextInt());
                     System.out.println(item.getItemName());

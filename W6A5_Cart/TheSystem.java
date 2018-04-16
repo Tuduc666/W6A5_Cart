@@ -25,7 +25,7 @@ public class TheSystem {
 				item.setItemName(line[0]);                      // in sample.txt fields are separated by 2 white spaces
 				item.setItemDesc(line[1]);
 				item.setItemPrice(Double.valueOf(line[2]));                   // convert string to double 
-				item.setAvailableQuantity(Integer.getInteger(line[3]));       // convert string to integer
+				item.setAvailableQuantity(Integer.parseInt(line[3]));       // convert string to integer
 				
 				this.itemCollection.put(line[0], item);                   // add item line to hash map
 				lineB = bf.readLine();                 // read next line
