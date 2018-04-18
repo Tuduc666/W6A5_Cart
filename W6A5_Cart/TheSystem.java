@@ -55,13 +55,21 @@ public class TheSystem {
     
     public Boolean add(Item item) {
     	// this.itemCollection.get(item.getItemName()).getQuantity();   //  Bairon put this here
+//    	System.out.println("ITEM ADD**** " + item.getItemName() + " " +
+//    	item.getItemDesc() + " " + item.getItemPrice() + " " + item.getQuantity() 
+//    	+ " " + item.getAvailableQuantity());     // debug, remove this!!!!!!!!!
     	String name = item.getItemName();
     	if(this.itemCollection.get(name)==null){   // not yet exist in inventory
     		this.itemCollection.put(name, item);  
     		return true;
     	} 
     	else {
-    		return (checkAvailability(item, this.itemCollection.get(item.getItemName()).getQuantity()));
+    	//	boolean check = checkAvailability(item, this.itemCollection.get(item.getItemName()).getQuantity());
+    		boolean check = checkAvailability(item, 1);    // adding 1 new item
+    		Item t = this.itemCollection.get(name);
+    		t.setQuantity(t.getQuantity() + 1);     // add 1 to quantity
+    		this.itemCollection.put(name, t);
+    		return (check);
     	}
     }
     public Item remove(String itemName) {
@@ -70,33 +78,15 @@ public class TheSystem {
     public Boolean checkAvailability(Item item, Integer current) {   // current is the current avail
     	Integer qty = item.getQuantity();
     	String name = item.getItemName();
-    	Integer avail = this.itemCollection.get(item.getItemName()).getQuantity();
+    	Integer avail = this.itemCollection.get(item.getItemName()).getAvailableQuantity();
     	if(qty+current > avail) {
     		System.out.println("System is unable to add " +
-    				qty + " " +  name);
-    		System.out.println("System can only add " + (avail - current) + " " + name);
+    				(qty+1) + " " +  name);
+    	//	System.out.println("System can only add " + (avail - current) + " " + name);
+    		System.out.println("System can only add " + avail + " " + name);
     		return false; 
     	}
     	else return true;
 
     }
-//    public String toString() {
-//    	Double subtotal=0D; Double tax; Double total;
-//		String message = "";
-//		for(Item a : this.itemCollection.values()) {
-//			message += a.getItemName() + " " + a.getItemDesc() + " " + a.getQuantity() + " " + a.getAvailableQuantity() + "\r\n";
-//			subtotal += a.getItemPrice();
-//		}
-//		if (getClass().getSimpleName().equals("AppSystem")) {  
-//		return message;     
-//		}
-//		else {
-//			tax = subtotal * 0.05;
-//			total = subtotal + tax;
-//			message += "Subtotal = " + subtotal  + "\r\n";
-//			message += "Tax = " + tax  + "\r\n";
-//			message += "Total = " + total  + "\r\n";
-//			return message; 
-//		}
-//	}
 }
