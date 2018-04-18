@@ -66,9 +66,11 @@ public class TheSystem {
     	else {
     	//	boolean check = checkAvailability(item, this.itemCollection.get(item.getItemName()).getQuantity());
     		boolean check = checkAvailability(item, 1);    // adding 1 new item
-    		Item t = this.itemCollection.get(name);
-    		t.setQuantity(t.getQuantity() + 1);     // add 1 to quantity
-    		this.itemCollection.put(name, t);
+    		if(check) {                                // add 1 to quantity only if availability is true        
+	    		Item t = this.itemCollection.get(name);
+	    		t.setQuantity(t.getQuantity() + 1);     
+	    		this.itemCollection.put(name, t);
+    		}
     		return (check);
     	}
     }

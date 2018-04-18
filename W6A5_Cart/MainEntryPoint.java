@@ -41,7 +41,9 @@ public class MainEntryPoint
                     System.out.println("Enter the name of the item");
                     reader.nextLine();
                     String item_name = reader.nextLine();
-                    cart.add(app.getItemCollection().get(item_name));
+                    Item t = app.getItemCollection().get(item_name);      
+                    if(t != null) cart.add(t);     // verify that item is in the system before adding to cart
+                    else System.out.println("Invalid item entered, item is not in the list.");
                     break;
                 case 3:
                     cart.display();
