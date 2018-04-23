@@ -91,4 +91,10 @@ public class TheSystem {
     	else return true;
 
     }
+    public Item getItem(String itemName) {
+        return this.itemCollection.get(itemName);
+    }
+    public void setItem(String itemName, Item i) {
+        this.itemCollection.put(itemName, i);
+    }
 }

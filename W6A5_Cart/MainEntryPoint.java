@@ -57,6 +57,9 @@ public class MainEntryPoint
                     reader.nextLine();
                     item_name = reader.nextLine();
                     cart.remove(item_name);
+                    Item i = app.getItem(item_name); 
+                    i.setQuantity(1);           // set system quantity back to 1
+                    app.setItem(item_name, i);;
                     break;
                 case 6:
                     app.display();
@@ -64,6 +67,7 @@ public class MainEntryPoint
                     reader.nextLine();
                     item_name = reader.nextLine();
                     app.remove(item_name);
+                    cart.remove(item_name);   // remove item from cart if exists
                     break;
                 case 7:
                     System.out.println("\nByyyeee!!");
